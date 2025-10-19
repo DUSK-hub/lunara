@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI/UX Study Page</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f7fa;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .summary {
+            background: #e8f4fc;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid #3498db;
+        }
+        .quiz-section {
+            margin-top: 30px;
+        }
+        .question {
+            background: #f8f9fa;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+        }
+        .options {
+            margin: 10px 0;
+        }
+        .option {
+            margin: 8px 0;
+        }
+        input[type="text"] {
+            padding: 8px;
+            width: 200px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            display: block;
+            width: 100%;
+        }
+        button:hover {
+            background: #2980b9;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            display: none;
+        }
+        .correct {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .incorrect {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>UI/UX Design Study Page</h1>
+        
+        <div class="summary">
+            <h2>Summary</h2>
+            <p>UI (User Interface) refers to the visual elements of an application or website, including buttons, colors, fonts, icons, and spacing. Good UI is clean, clear, and visually appealing, guiding users intuitively. UX (User Experience) focuses on the overall feeling and ease of use when interacting with a product, ensuring the user's journey is smooth and problem-solving is effortless. Together, UI/UX design plays a critical role in product success, with good design feeling invisible and bad design causing user frustration and abandonment. The importance extends beyond aesthetics to critical systems like medical devices and aviation, where design can impact safety and human life.</p>
+        </div>
+
+        <div class="quiz-section">
+            <h2>Quiz</h2>
+            
+            <div class="question">
+                <p><strong>1. What does UI primarily focus on?</strong></p>
+                <div class="options">
+                    <div class="option"><input type="radio" name="q1" value="a"> a) The emotional response of users</div>
+                    <div class="option"><input type="radio" name="q1" value="b"> b) The visual elements and appearance</div>
+                    <div class="option"><input type="radio" name="q1" value="c"> c) The backend functionality</div>
+                    <div class="option"><input type="radio" name="q1" value="d"> d) The marketing strategy</div>
+                </div>
+            </div>
+
+            <div class="question">
+                <p><strong>2. What is a key characteristic of good UX?</strong></p>
+                <div class="options">
+                    <div class="option"><input type="radio" name="q2" value="a"> a) Complex navigation to explore features</div>
+                    <div class="option"><input type="radio" name="q2" value="b"> b) Bright and flashy colors everywhere</div>
+                    <div class="option"><input type="radio" name="q2" value="c"> c) Making the user's journey smooth and intuitive</div>
+                    <div class="option"><input type="radio" name="q2" value="d"> d) Including as many features as possible</div>
+                </div>
+            </div>
+
+            <div class="question">
+                <p><strong>3. How quickly do people form visual judgments about a product?</strong></p>
+                <div class="options">
+                    <div class="option"><input type="radio" name="q3" value="a"> a) 5 seconds</div>
+                    <div class="option"><input type="radio" name="q3" value="b"> b) 2 seconds</div>
+                    <div class="option"><input type="radio" name="q3" value="c"> c) 1 second</div>
+                    <div class="option"><input type="radio" name="q3" value="d"> d) 0.5 seconds</div>
+                </div>
+            </div>
+
+            <div class="question">
+                <p><strong>4. True or False: UI and UX are only important for making things look nice.</strong></p>
+                <div class="options">
+                    <div class="option"><input type="radio" name="q4" value="true"> True</div>
+                    <div class="option"><input type="radio" name="q4" value="false"> False</div>
+                </div>
+            </div>
+
+            <div class="question">
+                <p><strong>5. True or False: Good UI/UX design can be critical for safety in systems like medical devices and aviation.</strong></p>
+                <div class="options">
+                    <div class="option"><input type="radio" name="q5" value="true"> True</div>
+                    <div class="option"><input type="radio" name="q5" value="false"> False</div>
+                </div>
+            </div>
+
+            <div class="question">
+                <p><strong>6. Complete the sentence: UI/UX is the difference between "I hate this app" and "________________"</strong></p>
+                <input type="text" id="q6" placeholder="Type your answer here">
+            </div>
+
+            <button onclick="checkAnswers()">Check Answers</button>
+            
+            <div id="result" class="result"></div>
+        </div>
+    </div>
+
+    <script>
+        function checkAnswers() {
+            let score = 0;
+            const totalQuestions = 6;
+            
+            // Question 1
+            const q1 = document.querySelector('input[name="q1"]:checked');
+            if (q1 && q1.value === 'b') score++;
+            
+            // Question 2
+            const q2 = document.querySelector('input[name="q2"]:checked');
+            if (q2 && q2.value === 'c') score++;
+            
+            // Question 3
+            const q3 = document.querySelector('input[name="q3"]:checked');
+            if (q3 && q3.value === 'd') score++;
+            
+            // Question 4
+            const q4 = document.querySelector('input[name="q4"]:checked');
+            if (q4 && q4.value === 'false') score++;
+            
+            // Question 5
+            const q5 = document.querySelector('input[name="q5"]:checked');
+            if (q5 && q5.value === 'true') score++;
+            
+            // Question 6
+            const q6 = document.getElementById('q6').value.toLowerCase();
+            if (q6.includes("i can't stop using it") || q6.includes("i cant stop using it")) score++;
+            
+            // Display result
+            const result = document.getElementById('result');
+            result.textContent = `You scored ${score} out of ${totalQuestions}`;
+            
+            if (score === totalQuestions) {
+                result.className = 'result correct';
+                result.textContent += ' - Perfect! Excellent understanding of UI/UX concepts!';
+            } else if (score >= totalQuestions / 2) {
+                result.className = 'result correct';
+                result.textContent += ' - Good job! You understand the basics well.';
+            } else {
+                result.className = 'result incorrect';
+                result.textContent += ' - Keep studying! Review the material and try again.';
+            }
+            
+            result.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
