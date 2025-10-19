@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Page</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .summary {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .summary h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        .quiz-section {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .quiz-section h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #e74c3c;
+            padding-bottom: 10px;
+        }
+        .question {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .question h3 {
+            color: #34495e;
+            margin-bottom: 15px;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .option {
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .option:hover {
+            background-color: #f8f9fa;
+        }
+        .option.selected {
+            background-color: #3498db;
+            color: white;
+            border-color: #2980b9;
+        }
+        .fill-blank {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .submit-btn {
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-top: 20px;
+        }
+        .submit-btn:hover {
+            background-color: #27ae60;
+        }
+        .results {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            display: none;
+        }
+        .correct {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        .incorrect {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="summary">
+        <h2>Summary</h2>
+        <p>This study page provides an interactive learning experience through a comprehensive quiz format. It includes multiple choice questions to test factual knowledge, true/false statements to assess binary understanding, and fill-in-the-blank exercises to evaluate recall ability. The integrated scoring system provides immediate feedback on performance, helping to identify areas for improvement. This approach combines content delivery with assessment in a single, user-friendly interface.</p>
+    </div>
+
+    <div class="quiz-section">
+        <h2>Quiz</h2>
+        <form id="quiz-form">
+            <div class="question">
+                <h3>1. What is the capital of France?</h3>
+                <div class="options">
+                    <div class="option" data-question="1" data-value="a">A) London</div>
+                    <div class="option" data-question="1" data-value="b">B) Berlin</div>
+                    <div class="option" data-question="1" data-value="c">C) Paris</div>
+                    <div class="option" data-question="1" data-value="d">D) Madrid</div>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>2. Which planet is known as the Red Planet?</h3>
+                <div class="options">
+                    <div class="option" data-question="2" data-value="a">A) Venus</div>
+                    <div class="option" data-question="2" data-value="b">B) Mars</div>
+                    <div class="option" data-question="2" data-value="c">C) Jupiter</div>
+                    <div class="option" data-question="2" data-value="d">D) Saturn</div>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>3. What is the largest mammal in the world?</h3>
+                <div class="options">
+                    <div class="option" data-question="3" data-value="a">A) African Elephant</div>
+                    <div class="option" data-question="3" data-value="b">B) Blue Whale</div>
+                    <div class="option" data-question="3" data-value="c">C) Giraffe</div>
+                    <div class="option" data-question="3" data-value="d">D) Polar Bear</div>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>4. The Great Wall of China is visible from space with the naked eye.</h3>
+                <div class="options">
+                    <div class="option" data-question="4" data-value="true">True</div>
+                    <div class="option" data-question="4" data-value="false">False</div>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>5. Water boils at 100 degrees Celsius at sea level.</h3>
+                <div class="options">
+                    <div class="option" data-question="5" data-value="true">True</div>
+                    <div class="option" data-question="5" data-value="false">False</div>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>6. The process by which plants make their own food is called __________.</h3>
+                <input type="text" class="fill-blank" id="fill-blank" placeholder="Type your answer here">
+            </div>
+
+            <button type="button" class="submit-btn" id="submit-btn">Submit Answers</button>
+        </form>
+
+        <div class="results" id="results">
+            <h3>Quiz Results</h3>
+            <p id="score-display"></p>
+            <div id="answer-feedback"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const options = document.querySelectorAll('.option');
+            const submitBtn = document.getElementById('submit-btn');
+            const results = document.getElementById('results');
+            const scoreDisplay = document.getElementById('score-display');
+            const answerFeedback = document.getElementById('answer-feedback');
+            
+            const correctAnswers = {
+                1: 'c',
+                2: 'b',
+                3: 'b',
+                4: 'false',
+                5: 'true',
+                6: 'photosynthesis'
+            };
+            
+            options.forEach(option => {
+                option.addEventListener('click', function() {
+                    const questionNum = this.getAttribute('data-question');
+                    const questionOptions = document.querySelectorAll(`.option[data-question="${questionNum}"]`);
+                    
+                    questionOptions.forEach(opt => {
+                        opt.classList.remove('selected');
+                    });
+                    
+                    this.classList.add('selected');
+                });
+            });
+            
+            submitBtn.addEventListener('click', function() {
+                let score = 0;
+                let feedbackHTML = '';
+                
+                for (let i = 1; i <= 5; i++) {
+                    const selectedOption = document.querySelector(`.option.selected[data-question="${i}"]`);
+                    const userAnswer = selectedOption ? selectedOption.getAttribute('data-value') : null;
+                    const isCorrect = userAnswer === correctAnswers[i];
+                    
+                    if (isCorrect) score++;
+                    
+                    feedbackHTML += `<p>Question ${i}: ${isCorrect ? '<span class="correct">Correct</span>' : '<span class="incorrect">Incorrect</span>'}</p>`;
+                }
+                
+                const fillBlankAnswer = document.getElementById('fill-blank').value.toLowerCase().trim();
+                const isFillCorrect = fillBlankAnswer === correctAnswers[6];
+                
+                if (isFillCorrect) score++;
+                
+                feedbackHTML += `<p>Question 6: ${isFillCorrect ? '<span class="correct">Correct</span>' : '<span class="incorrect">Incorrect</span>'}</p>`;
+                
+                scoreDisplay.textContent = `You scored ${score} out of 6`;
+                answerFeedback.innerHTML = feedbackHTML;
+                results.style.display = 'block';
+                
+                window.scrollTo({
+                    top: document.body.scrollHeight,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

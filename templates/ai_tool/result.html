@@ -1,28 +1,25 @@
 {% extends "base.html" %}
 
-{% block title %}Results - College AI Platform{% endblock %}
+{% block title %}Results - Lunara{% endblock %}
 
 {% block content %}
-<div class="results-container">
-    <h1>AI Generated Results</h1>
-    
-    <div class="result-section">
-        <h2>Summary</h2>
-        <div class="summary-box">
-            {{ summary }}
+<div class="container container--narrow">
+    <div class="card">
+        <div class="card__header">
+            <h1 class="card__title">AI Generated Results</h1>
+            <p class="card__subtitle">Your study materials have been processed successfully</p>
         </div>
-    </div>
 
-    <div class="result-section">
-        <h2>Interactive Quiz</h2>
-        <div class="quiz-box">
-            {{ quiz_html|safe }}
+        <div class="card__body">
+            <div class="alert alert--success">
+                Study page generated successfully! You will be redirected to view it.
+            </div>
         </div>
-    </div>
 
-    <div class="result-actions">
-        <a href="{{ url_for('ai_tool') }}" class="btn btn-secondary">Generate Another</a>
-        <a href="{{ url_for('dashboard') }}" class="btn btn-primary">Back to Dashboard</a>
+        <div class="card__footer">
+            <a href="{{ url_for('ai_tool') }}" class="btn btn--secondary">Generate Another</a>
+            <a href="{{ url_for('dashboard') }}" class="btn btn--ghost">Back to Dashboard</a>
+        </div>
     </div>
 </div>
 {% endblock %}

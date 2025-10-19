@@ -5,12 +5,12 @@
 {% block content %}
 <div class="error-page">
     <div class="error-content">
-        <h1 class="error-code">500</h1>
-        <h2>Internal Server Error</h2>
-        <p>Something went wrong on our end. Please try again later.</p>
+        <div class="error-code">500</div>
+        <h2 class="error-title">Internal Server Error</h2>
+        <p class="error-description">Something went wrong on our end. Please try again later.</p>
         <div class="error-actions">
-            <a href="{{ url_for('index') }}" class="btn btn-primary">Go Home</a>
-            <a href="javascript:history.back()" class="btn btn-secondary">Go Back</a>
+            <a href="{{ url_for('index') }}" class="btn btn--primary">Go Home</a>
+            <a href="javascript:history.back()" class="btn btn--secondary">Go Back</a>
         </div>
     </div>
 </div>

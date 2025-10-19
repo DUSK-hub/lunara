@@ -1,61 +1,60 @@
 {% extends "base.html" %}
 
-{% block title %}Dashboard - College AI Platform{% endblock %}
+{% block title %}Dashboard - Lunara{% endblock %}
 
 {% block content %}
 <div class="dashboard">
-    <h1>Welcome, {{ session.get('username') }}!</h1>
+    <div class="dashboard__header">
+        <h1 class="dashboard__title">Welcome, {{ session.get('username') }}!</h1>
+    </div>
     
-    <div class="dashboard-grid">
-        <div class="dashboard-section">
-            <h2>Your Subjects</h2>
-            <div class="subjects-list">
-                <a href="{{ url_for('subject', subject_name='data_structure') }}" class="subject-link">
+    <div class="dashboard__grid">
+        <div class="dashboard__section">
+            <h2 class="dashboard__section-title">Your Subjects</h2>
+            <div class="subject-grid">
+                <a href="{{ url_for('subject', subject_name='data_structure') }}" class="subject-card">
                     📊 Data Structures
                 </a>
-                <a href="{{ url_for('subject', subject_name='discrete_math') }}" class="subject-link">
+                <a href="{{ url_for('subject', subject_name='discrete_math') }}" class="subject-card">
                     🔢 Discrete Mathematics
                 </a>
-                <a href="{{ url_for('subject', subject_name='micro_assembly') }}" class="subject-link">
+                <a href="{{ url_for('subject', subject_name='micro_assembly') }}" class="subject-card">
                     💻 Microprocessor & Assembly
                 </a>
-                <a href="{{ url_for('subject', subject_name='operations_research') }}" class="subject-link">
+                <a href="{{ url_for('subject', subject_name='operations_research') }}" class="subject-card">
                     📈 Operations Research
                 </a>
-                <a href="{{ url_for('subject', subject_name='systems_analysis') }}" class="subject-link">
+                <a href="{{ url_for('subject', subject_name='systems_analysis') }}" class="subject-card">
                     🔍 Systems Analysis
                 </a>
-                <a href="{{ url_for('subject', subject_name='web_programming') }}" class="subject-link">
+                <a href="{{ url_for('subject', subject_name='web_programming') }}" class="subject-card">
                     🌐 Web Programming
                 </a>
             </div>
         </div>
 
-        <div class="dashboard-section">
-            <h2>Quick Actions</h2>
-            <div class="quick-actions">
-                <a href="{{ url_for('ai_tool') }}" class="action-btn">
-                    <span class="icon">🤖</span>
-                    <span>AI Summary & Quiz</span>
-                </a>
-            </div>
+        <div class="dashboard__section">
+            <h2 class="dashboard__section-title">Quick Actions</h2>
+            <a href="{{ url_for('ai_tool') }}" class="btn btn--primary btn--block btn--large">
+                🤖 AI Summary & Quiz Generator
+            </a>
         </div>
 
-        <div class="dashboard-section">
-            <h2>Recent Quiz Scores</h2>
-            <div class="scores-list">
-                {% if scores %}
+        <div class="dashboard__section">
+            <h2 class="dashboard__section-title">Recent Quiz Scores</h2>
+            {% if scores %}
+                <ul class="score-list">
                     {% for score in scores %}
-                        <div class="score-item">
-                            <span class="score-subject">{{ score['subject'] }}</span>
-                            <span class="score-value">{{ score['score'] }}%</span>
-                            <span class="score-date">{{ score['created_at'] }}</span>
-                        </div>
+                        <li class="score-item">
+                            <span class="score-item__subject">{{ score['subject'] }}</span>
+                            <span class="score-item__value">{{ score['score'] }}%</span>
+                            <span class="score-item__date">{{ score['created_at'] }}</span>
+                        </li>
                     {% endfor %}
-                {% else %}
-                    <p class="no-data">No quiz scores yet. Take a quiz to get started!</p>
-                {% endif %}
-            </div>
+                </ul>
+            {% else %}
+                <p class="no-data">No quiz scores yet. Take a quiz to get started!</p>
+            {% endif %}
         </div>
     </div>
 </div>

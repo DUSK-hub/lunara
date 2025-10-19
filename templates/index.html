@@ -1,45 +1,50 @@
 {% extends "base.html" %}
 
-{% block title %}Home - College AI Platform{% endblock %}
+{% block title %}Home - Lunara{% endblock %}
 
 {% block content %}
-<div class="hero">
-    <h1>Welcome to College AI Platform</h1>
-    <p class="subtitle">Your AI-powered learning companion for college courses</p>
+<section class="hero">
+    <h1 class="hero__title">Welcome to Lunara</h1>
+    <p class="hero__subtitle">Your AI-powered learning companion for college courses. Generate summaries, create quizzes, and track your academic progress.</p>
     
-    <div class="features">
-        <div class="feature-card">
-            <h3>📚 Study Materials</h3>
-            <p>Access organized lectures, labs, and summaries for all your courses</p>
-        </div>
-        <div class="feature-card">
-            <h3>🤖 AI-Powered Tools</h3>
-            <p>Generate summaries and quizzes from your study materials instantly</p>
-        </div>
-        <div class="feature-card">
-            <h3>📊 Track Progress</h3>
-            <p>Monitor your quiz scores and learning progress over time</p>
-        </div>
-    </div>
-
-    <div class="cta-buttons">
+    <div class="hero__actions">
         {% if session.get('user_id') %}
-            <a href="{{ url_for('dashboard') }}" class="btn btn-primary">Go to Dashboard</a>
+            <a href="{{ url_for('dashboard') }}" class="btn btn--primary btn--large">Go to Dashboard</a>
         {% else %}
-            <a href="{{ url_for('login') }}" class="btn btn-primary">Get Started</a>
+            <a href="{{ url_for('login') }}" class="btn btn--primary btn--large">Get Started</a>
         {% endif %}
     </div>
-</div>
+</section>
 
-<div class="subjects-preview">
-    <h2>Available Subjects</h2>
-    <div class="subjects-grid">
-        <div class="subject-item">Data Structures</div>
-        <div class="subject-item">Discrete Mathematics</div>
-        <div class="subject-item">Microprocessor & Assembly</div>
-        <div class="subject-item">Operations Research</div>
-        <div class="subject-item">Systems Analysis</div>
-        <div class="subject-item">Web Programming</div>
+<section class="feature-grid">
+    <div class="feature-card">
+        <div class="feature-card__icon">📚</div>
+        <h3 class="feature-card__title">Study Materials</h3>
+        <p class="feature-card__description">Access organized lectures, labs, and summaries for all your courses in one place.</p>
     </div>
-</div>
+    
+    <div class="feature-card">
+        <div class="feature-card__icon">🤖</div>
+        <h3 class="feature-card__title">AI-Powered Tools</h3>
+        <p class="feature-card__description">Generate summaries and interactive quizzes from your study materials instantly using advanced AI.</p>
+    </div>
+    
+    <div class="feature-card">
+        <div class="feature-card__icon">📊</div>
+        <h3 class="feature-card__title">Track Progress</h3>
+        <p class="feature-card__description">Monitor your quiz scores and learning progress over time with detailed analytics.</p>
+    </div>
+</section>
+
+<section class="py-4">
+    <h2 class="text-center mb-3">Available Subjects</h2>
+    <div class="subject-grid">
+        <div class="subject-card">Data Structures</div>
+        <div class="subject-card">Discrete Mathematics</div>
+        <div class="subject-card">Microprocessor & Assembly</div>
+        <div class="subject-card">Operations Research</div>
+        <div class="subject-card">Systems Analysis</div>
+        <div class="subject-card">Web Programming</div>
+    </div>
+</section>
 {% endblock %}

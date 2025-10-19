@@ -2,18 +2,18 @@
 function showTab(tabName) {
     const loginForm = document.getElementById('login-form');
     const registerForm = document.getElementById('register-form');
-    const tabs = document.querySelectorAll('.tab-btn');
+    const tabs = document.querySelectorAll('.tab');
 
     if (tabName === 'login') {
         loginForm.style.display = 'block';
         registerForm.style.display = 'none';
-        tabs[0].classList.add('active');
-        tabs[1].classList.remove('active');
+        tabs[0].classList.add('tab--active');
+        tabs[1].classList.remove('tab--active');
     } else {
         loginForm.style.display = 'none';
         registerForm.style.display = 'block';
-        tabs[0].classList.remove('active');
-        tabs[1].classList.add('active');
+        tabs[0].classList.remove('tab--active');
+        tabs[1].classList.add('tab--active');
     }
 }
 
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Auto-hide flash messages after 5 seconds
-    const flashMessages = document.querySelectorAll('.flash');
+    const flashMessages = document.querySelectorAll('.alert');
     flashMessages.forEach(function(message) {
         setTimeout(function() {
             message.style.opacity = '0';
@@ -95,22 +95,17 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-});
 
-// Quiz grading functionality (if needed for future enhancements)
-function gradeQuiz(formData) {
-    let score = 0;
-    let total = 0;
-    
-    // This is a placeholder for quiz grading logic
-    // Can be expanded based on quiz format
-    
-    return {
-        score: score,
-        total: total,
-        percentage: total > 0 ? (score / total * 100).toFixed(2) : 0
-    };
-}
+    // Focus management for accessibility
+    document.querySelectorAll('.input, .textarea, .select').forEach(input => {
+        input.addEventListener('focus', function() {
+            this.parentElement.classList.add('focused');
+        });
+        input.addEventListener('blur', function() {
+            this.parentElement.classList.remove('focused');
+        });
+    });
+});
 
 // Utility function to show loading state
 function showLoading(button) {

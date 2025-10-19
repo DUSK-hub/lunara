@@ -1,30 +1,38 @@
 {% extends "base.html" %}
 
-{% block title %}Systems Analysis - College AI Platform{% endblock %}
+{% block title %}Systems Analysis - Lunara{% endblock %}
 
 {% block content %}
 <div class="subject-page">
-    <h1>🔍 Systems Analysis</h1>
+    <h1 class="subject-page__title">🔍 Systems Analysis</h1>
     
-    <div class="subject-content">
-        <section class="material-section">
-            <h2>Lectures</h2>
-            <ul class="material-list">
-                <li><a href="#">Lecture 1: Introduction to Systems Analysis</a></li>
-                <li><a href="#">Lecture 2: Requirements Analysis</a></li>
-                <li><a href="#">Lecture 3: System Design</a></li>
-            </ul>
-        </section>
-
-        <section class="material-section">
-            <h2>Lab Materials</h2>
-            <ul class="material-list">
-                <li><a href="#">Lab 1: Use Case Diagrams</a></li>
-                <li><a href="#">Lab 2: Data Flow Diagrams</a></li>
-            </ul>
-        </section>
+    <div class="material-section">
+        <h2 class="material-section__title">Lectures</h2>
+        <ul class="material-list">
+            <li class="material-list__item">
+                <a href="#" class="material-list__link">Lecture 1: Introduction to Systems Analysis</a>
+            </li>
+            <li class="material-list__item">
+                <a href="#" class="material-list__link">Lecture 2: Requirements Analysis</a>
+            </li>
+            <li class="material-list__item">
+                <a href="#" class="material-list__link">Lecture 3: System Design</a>
+            </li>
+        </ul>
     </div>
 
-    <a href="{{ url_for('dashboard') }}" class="btn btn-secondary">Back to Dashboard</a>
+    <div class="material-section">
+        <h2 class="material-section__title">Lab Materials</h2>
+        <ul class="material-list">
+            <li class="material-list__item">
+                <a href="#" class="material-list__link">Lab 1: Use Case Diagrams</a>
+            </li>
+            <li class="material-list__item">
+                <a href="#" class="material-list__link">Lab 2: Data Flow Diagrams</a>
+            </li>
+        </ul>
+    </div>
+
+    <a href="{{ url_for('dashboard') }}" class="btn btn--secondary mt-3">Back to Dashboard</a>
 </div>
 {% endblock %}

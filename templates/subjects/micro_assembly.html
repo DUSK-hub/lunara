@@ -1,30 +1,38 @@
 {% extends "base.html" %}
 
-{% block title %}Microprocessor & Assembly - College AI Platform{% endblock %}
+{% block title %}Microprocessor & Assembly - Lunara{% endblock %}
 
 {% block content %}
 <div class="subject-page">
-    <h1>💻 Microprocessor & Assembly</h1>
+    <h1 class="subject-page__title">💻 Microprocessor & Assembly</h1>
     
-    <div class="subject-content">
-        <section class="material-section">
-            <h2>Lectures</h2>
-            <ul class="material-list">
-                <li><a href="#">Lecture 1: Introduction to Microprocessors</a></li>
-                <li><a href="#">Lecture 2: Assembly Language Basics</a></li>
-                <li><a href="#">Lecture 3: Instruction Set Architecture</a></li>
-            </ul>
-        </section>
-
-        <section class="material-section">
-            <h2>Lab Materials</h2>
-            <ul class="material-list">
-                <li><a href="#">Lab 1: Basic Assembly Programs</a></li>
-                <li><a href="#">Lab 2: Memory Operations</a></li>
-            </ul>
-        </section>
+    <div class="material-section">
+        <h2 class="material-section__title">Lectures</h2>
+        <ul class="material-list">
+            <li class="material-list__item">
+                <a href="#" class="material-list__link">Lecture 1: Introduction to Microprocessors</a>
+            </li>
+            <li class="material-list__item">
+                <a href="#" class="material-list__link">Lecture 2: Assembly Language Basics</a>
+            </li>
+            <li class="material-list__item">
+                <a href="#" class="material-list__link">Lecture 3: Instruction Set Architecture</a>
+            </li>
+        </ul>
     </div>
 
-    <a href="{{ url_for('dashboard') }}" class="btn btn-secondary">Back to Dashboard</a>
+    <div class="material-section">
+        <h2 class="material-section__title">Lab Materials</h2>
+        <ul class="material-list">
+            <li class="material-list__item">
+                <a href="#" class="material-list__link">Lab 1: Basic Assembly Programs</a>
+            </li>
+            <li class="material-list__item">
+                <a href="#" class="material-list__link">Lab 2: Memory Operations</a>
+            </li>
+        </ul>
+    </div>
+
+    <a href="{{ url_for('dashboard') }}" class="btn btn--secondary mt-3">Back to Dashboard</a>
 </div>
 {% endblock %}

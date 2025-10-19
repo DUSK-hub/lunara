@@ -1,29 +1,29 @@
 {% extends "base.html" %}
 
-{% block title %}AI Tool - College AI Platform{% endblock %}
+{% block title %}AI Tool - Lunara{% endblock %}
 
 {% block content %}
-<div class="ai-tool-container">
-    <h1>AI Summary & Quiz Generator</h1>
-    <p class="subtitle">Upload a PDF or paste text to generate AI-powered summaries and quizzes</p>
+<div class="upload-container">
+    <h1 class="upload-title">AI Summary & Quiz Generator</h1>
+    <p class="upload-subtitle">Upload a PDF or paste text to generate AI-powered summaries and interactive quizzes</p>
 
     <form action="{{ url_for('process') }}" method="POST" enctype="multipart/form-data" class="upload-form">
         <div class="form-group">
-            <label for="user_text">Paste Your Text</label>
-            <textarea id="user_text" name="user_text" rows="10" placeholder="Paste your lecture notes, study material, or any educational content here..."></textarea>
+            <label for="user_text" class="form-label">Paste Your Text</label>
+            <textarea id="user_text" name="user_text" class="textarea" rows="10" placeholder="Paste your lecture notes, study material, or any educational content here..."></textarea>
         </div>
 
         <div class="form-divider">
-            <span>OR</span>
+            <span class="form-divider__text">OR</span>
         </div>
 
         <div class="form-group">
-            <label for="pdf_file">Upload PDF File</label>
-            <input type="file" id="pdf_file" name="pdf_file" accept=".pdf">
-            <small>Maximum file size: 10MB</small>
+            <label for="pdf_file" class="form-label">Upload PDF File</label>
+            <input type="file" id="pdf_file" name="pdf_file" class="input" accept=".pdf">
+            <span class="form-help">Maximum file size: 10MB</span>
         </div>
 
-        <button type="submit" class="btn btn-primary btn-large">
+        <button type="submit" class="btn btn--primary btn--large btn--block">
             Generate Summary & Quiz
         </button>
     </form>

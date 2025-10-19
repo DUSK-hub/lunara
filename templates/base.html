@@ -3,45 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}College AI Platform{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>{% block title %}Lunara - College AI Platform{% endblock %}</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/theme.css') }}">
 </head>
 <body>
     <nav class="navbar">
-        <div class="container">
-            <div class="nav-brand">
-                <a href="{{ url_for('index') }}">College AI Platform</a>
-            </div>
-            <ul class="nav-menu">
+        <div class="navbar__inner">
+            <a href="{{ url_for('index') }}" class="navbar__brand">Lunara</a>
+            <ul class="navbar__menu">
                 {% if session.get('user_id') %}
-                    <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
-                    <li><a href="{{ url_for('ai_tool') }}">AI Tool</a></li>
-                    <li><a href="{{ url_for('logout') }}">Logout ({{ session.get('username') }})</a></li>
+                    <li><a href="{{ url_for('dashboard') }}" class="navbar__link">Dashboard</a></li>
+                    <li><a href="{{ url_for('ai_tool') }}" class="navbar__link">AI Tool</a></li>
+                    <li><a href="{{ url_for('logout') }}" class="navbar__link">Logout</a></li>
                 {% else %}
-                    <li><a href="{{ url_for('index') }}">Home</a></li>
-                    <li><a href="{{ url_for('login') }}">Login</a></li>
+                    <li><a href="{{ url_for('index') }}" class="navbar__link">Home</a></li>
+                    <li><a href="{{ url_for('login') }}" class="navbar__link">Login</a></li>
                 {% endif %}
             </ul>
         </div>
     </nav>
 
-    <main class="container">
-        {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                <div class="flash-messages">
+    <main class="main-content">
+        <div class="container">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
                     {% for category, message in messages %}
-                        <div class="flash flash-{{ category }}">{{ message }}</div>
+                        <div class="alert alert--{{ 'error' if category == 'error' else 'success' if category == 'success' else 'info' }}">
+                            {{ message }}
+                        </div>
                     {% endfor %}
-                </div>
-            {% endif %}
-        {% endwith %}
+                {% endif %}
+            {% endwith %}
 
-        {% block content %}{% endblock %}
+            {% block content %}{% endblock %}
+        </div>
     </main>
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 College AI Platform. All rights reserved.</p>
+            <p>&copy; 2025 Lunara - College AI Platform. All rights reserved.</p>
         </div>
     </footer>
 
