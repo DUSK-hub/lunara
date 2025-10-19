@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - College AI Platform{% endblock %}
+
+{% block content %}
+<div class="dashboard">
+    <h1>Welcome, {{ session.get('username') }}!</h1>
+    
+    <div class="dashboard-grid">
+        <div class="dashboard-section">
+            <h2>Your Subjects</h2>
+            <div class="subjects-list">
+                <a href="{{ url_for('subject', subject_name='data_structure') }}" class="subject-link">
+                    📊 Data Structures
+                </a>
+                <a href="{{ url_for('subject', subject_name='discrete_math') }}" class="subject-link">
+                    🔢 Discrete Mathematics
+                </a>
+                <a href="{{ url_for('subject', subject_name='micro_assembly') }}" class="subject-link">
+                    💻 Microprocessor & Assembly
+                </a>
+                <a href="{{ url_for('subject', subject_name='operations_research') }}" class="subject-link">
+                    📈 Operations Research
+                </a>
+                <a href="{{ url_for('subject', subject_name='systems_analysis') }}" class="subject-link">
+                    🔍 Systems Analysis
+                </a>
+                <a href="{{ url_for('subject', subject_name='web_programming') }}" class="subject-link">
+                    🌐 Web Programming
+                </a>
+            </div>
+        </div>
+
+        <div class="dashboard-section">
+            <h2>Quick Actions</h2>
+            <div class="quick-actions">
+                <a href="{{ url_for('ai_tool') }}" class="action-btn">
+                    <span class="icon">🤖</span>
+                    <span>AI Summary & Quiz</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="dashboard-section">
+            <h2>Recent Quiz Scores</h2>
+            <div class="scores-list">
+                {% if scores %}
+                    {% for score in scores %}
+                        <div class="score-item">
+                            <span class="score-subject">{{ score['subject'] }}</span>
+                            <span class="score-value">{{ score['score'] }}%</span>
+                            <span class="score-date">{{ score['created_at'] }}</span>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p class="no-data">No quiz scores yet. Take a quiz to get started!</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

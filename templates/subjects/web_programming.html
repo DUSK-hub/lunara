@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Web Programming - College AI Platform{% endblock %}
+
+{% block content %}
+<div class="subject-page">
+    <h1>🌐 Web Programming</h1>
+    
+    <div class="subject-content">
+        <section class="material-section">
+            <h2>Lectures</h2>
+            <ul class="material-list">
+                <li><a href="#">Lecture 1: HTML & CSS Fundamentals</a></li>
+                <li><a href="#">Lecture 2: JavaScript Basics</a></li>
+                <li><a href="#">Lecture 3: Frontend Frameworks</a></li>
+                <li><a href="#">Lecture 4: Backend Development</a></li>
+            </ul>
+        </section>
+
+        <section class="material-section">
+            <h2>Lab Materials</h2>
+            <ul class="material-list">
+                <li><a href="#">Lab 1: Building a Simple Webpage</a></li>
+                <li><a href="#">Lab 2: JavaScript DOM Manipulation</a></li>
+                <li><a href="#">Lab 3: REST API Development</a></li>
+            </ul>
+        </section>
+    </div>
+
+    <a href="{{ url_for('dashboard') }}" class="btn btn-secondary">Back to Dashboard</a>
+</div>
+{% endblock %}

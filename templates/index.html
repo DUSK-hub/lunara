@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Home - College AI Platform{% endblock %}
+
+{% block content %}
+<div class="hero">
+    <h1>Welcome to College AI Platform</h1>
+    <p class="subtitle">Your AI-powered learning companion for college courses</p>
+    
+    <div class="features">
+        <div class="feature-card">
+            <h3>📚 Study Materials</h3>
+            <p>Access organized lectures, labs, and summaries for all your courses</p>
+        </div>
+        <div class="feature-card">
+            <h3>🤖 AI-Powered Tools</h3>
+            <p>Generate summaries and quizzes from your study materials instantly</p>
+        </div>
+        <div class="feature-card">
+            <h3>📊 Track Progress</h3>
+            <p>Monitor your quiz scores and learning progress over time</p>
+        </div>
+    </div>
+
+    <div class="cta-buttons">
+        {% if session.get('user_id') %}
+            <a href="{{ url_for('dashboard') }}" class="btn btn-primary">Go to Dashboard</a>
+        {% else %}
+            <a href="{{ url_for('login') }}" class="btn btn-primary">Get Started</a>
+        {% endif %}
+    </div>
+</div>
+
+<div class="subjects-preview">
+    <h2>Available Subjects</h2>
+    <div class="subjects-grid">
+        <div class="subject-item">Data Structures</div>
+        <div class="subject-item">Discrete Mathematics</div>
+        <div class="subject-item">Microprocessor & Assembly</div>
+        <div class="subject-item">Operations Research</div>
+        <div class="subject-item">Systems Analysis</div>
+        <div class="subject-item">Web Programming</div>
+    </div>
+</div>
+{% endblock %}

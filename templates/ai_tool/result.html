@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Results - College AI Platform{% endblock %}
+
+{% block content %}
+<div class="results-container">
+    <h1>AI Generated Results</h1>
+    
+    <div class="result-section">
+        <h2>Summary</h2>
+        <div class="summary-box">
+            {{ summary }}
+        </div>
+    </div>
+
+    <div class="result-section">
+        <h2>Interactive Quiz</h2>
+        <div class="quiz-box">
+            {{ quiz_html|safe }}
+        </div>
+    </div>
+
+    <div class="result-actions">
+        <a href="{{ url_for('ai_tool') }}" class="btn btn-secondary">Generate Another</a>
+        <a href="{{ url_for('dashboard') }}" class="btn btn-primary">Back to Dashboard</a>
+    </div>
+</div>
+{% endblock %}
