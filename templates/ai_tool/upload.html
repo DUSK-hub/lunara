@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AI Summary & Quiz Generator</title>
+</head>
+<body>
+  <h1>Upload Material or Paste Text</h1>
+  <form action="/process" method="POST" enctype="multipart/form-data">
+    <textarea name="user_text" rows="6" cols="60" placeholder="Paste your text here..."></textarea><br><br>
+    <input type="file" name="pdf_file" accept=".pdf"><br><br>
+    <button type="submit">Generate Summary & Quiz</button>
+  </form>
+</body>
+</html>
